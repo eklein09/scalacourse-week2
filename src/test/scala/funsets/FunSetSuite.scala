@@ -142,4 +142,23 @@ class FunSetSuite extends FunSuite {
     }
   }
 
+  test("exists is working") {
+    new TestSets {
+
+      val oneTwoSet = union(singletonSet(1), singletonSet(2))
+      assert(exists(oneTwoSet, x => {
+        if (x==1)
+          true
+        else
+          false
+      }), "1")
+
+      assert(!exists(oneTwoSet, x => {
+        if (x==3)
+          true
+        else
+          false
+      }), "1")
+    }
+  }
 }

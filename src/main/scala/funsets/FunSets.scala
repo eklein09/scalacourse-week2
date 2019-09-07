@@ -102,7 +102,23 @@ object FunSets {
    * Returns whether there exists a bounded integer within `s`
    * that satisfies `p`.
    */
-    def exists(s: Set, p: Int => Boolean): Boolean = ???
+    def exists(s: Set, p: Int => Boolean): Boolean = {
+      def existsIsTrueForEverythingFromAToThousand(a:Int, s: Set, p: Int => Boolean): Boolean = {
+        if (a > 1000)
+          false
+        else {
+          if (s(a) && p(a)) {
+            true
+          }
+          else
+            existsIsTrueForEverythingFromAToThousand(a+1, s, p)
+        }
+
+
+
+      }
+      existsIsTrueForEverythingFromAToThousand(-1000,s,p)
+    }
   
   /**
    * Returns a set transformed by applying `f` to each element of `s`.
