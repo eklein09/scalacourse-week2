@@ -13,7 +13,7 @@ import org.scalatest.junit.JUnitRunner
  *  - right-click the file in eclipse and chose "Run As" - "JUnit Test"
  */
 @RunWith(classOf[JUnitRunner])
-class eiejccibicctillgtfuhehrnefguvckrchvreegbbtvbFunSetSuite extends FunSuite {
+class FunSetSuite extends FunSuite {
 
   /**
    * Link to the scaladoc - very clear and detailed tutorial of FunSuite
@@ -110,5 +110,25 @@ class eiejccibicctillgtfuhehrnefguvckrchvreegbbtvbFunSetSuite extends FunSuite {
     }
   }
 
+  test("filter is working") {
+    new TestSets {
+      val filtered_set = filter(s1, x => {
+        if (x==1)
+          true
+        else
+          false
+      })
+      assert(contains(filtered_set, 1), "Filter 1")
+
+      val filtered_set2 = filter(s1, x => {
+        if (x==0)
+          true
+        else
+          false
+      })
+      assert(!contains(filtered_set2, 1), "Filter 1 with different filter")
+
+    }
+  }
 
 }
