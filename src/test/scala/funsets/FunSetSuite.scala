@@ -131,4 +131,15 @@ class FunSetSuite extends FunSuite {
     }
   }
 
+  test("forall is working") {
+    new TestSets {
+      assert(forall(singletonSet(1), x => {
+        if (x==1)
+          true
+        else
+          false
+      }), "Union 1")
+    }
+  }
+
 }
