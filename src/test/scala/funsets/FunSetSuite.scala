@@ -161,4 +161,17 @@ class FunSetSuite extends FunSuite {
       }), "1")
     }
   }
+
+  test("map is working") {
+    new TestSets {
+
+      val oneTwoSet = union(singletonSet(1), singletonSet(2))
+      val mappedSet = map(oneTwoSet, x => 2*x)
+      assert(contains(mappedSet, 2), "2")
+      assert(contains(mappedSet, 4), "4")
+      assert(!contains(mappedSet, 3), "3")
+
+    }
+  }
+
 }

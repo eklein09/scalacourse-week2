@@ -123,7 +123,18 @@ object FunSets {
   /**
    * Returns a set transformed by applying `f` to each element of `s`.
    */
-    def map(s: Set, f: Int => Int): Set = ???
+    def map(s: Set, f: Int => Int): Set = x => {
+//      Does there exist an item y in s such that f(y) is x?
+      if (exists(s, y => {
+        if (f(y) == x)
+          true
+        else
+          false
+      }))
+        true
+      else
+        false
+    }
   
   /**
    * Displays the contents of a set
